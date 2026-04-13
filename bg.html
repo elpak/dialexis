@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIALEXIS — Агенция за преводи: гръцки · български · английски</title>
+    <meta name="description" content="Сертифицирана агенция за преводи и легализация, специализирана в гръцки, български и английски език. ISO 17100 сертифицирана.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{'bk':'#0A0A0A','dk':'#111111','dg':'#1A1A1A','dgr':'#252525','sv':'#C0C0C0','no':'#FF5A00','noh':'#E04F00'},fontFamily:{'heading':['"Bebas Neue"','sans-serif'],'body':['"Inter"','sans-serif']}}}}
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background-color:#0A0A0A;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+        .text-metallic{background:linear-gradient(180deg,#fff 0%,#999 45%,#ccc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .bw-photo{filter:grayscale(100%);transition:all .7s ease}
+        .bw-photo:hover{filter:grayscale(0%);transform:scale(1.02)}
+        .fade-section{opacity:0;transform:translateY(30px);transition:all .8s ease-out}
+        .fade-section.visible{opacity:1;transform:translateY(0)}
+        .faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;overflow:hidden}
+        .faq-answer.open{grid-template-rows:1fr;padding-bottom:20px}
+        .faq-answer-content{min-height:0}
+        .faq-chevron{transition:transform 0.4s ease}
+        .faq-chevron.open{transform:rotate(180deg)}
+        #mobileMenu.open{transform:translateX(0)}
+        .lang-dropdown{opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
+        .lang-container:hover .lang-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+    </style>
+</head>
+<body>
+
+   <nav class="fixed top-0 w-full z-50 bg-bk/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-[1440px] mx-auto flex justify-between items-center px-6 py-4">
+            <div class="text-2xl font-heading tracking-tighter text-metallic">DIALEXIS</div>
+
+            <div class="hidden md:flex items-center space-x-8 text-[11px] font-bold tracking-[0.2em] uppercase">
+                <a href="#services" class="hover:text-no transition">Услуги</a>
+                <a href="#about" class="hover:text-no transition">Агенция</a>
+                <a href="#faq" class="hover:text-no transition">ЧЗВ</a>
+
+                <div class="relative lang-container cursor-pointer py-2">
+                    <div class="flex items-center space-x-2 border-l border-white/10 pl-6">
+                        <iconify-icon icon="twemoji:flag-bulgaria" width="16"></iconify-icon>
+                        <span class="text-white/60">BG</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+                    </div>
+                    <div class="absolute right-0 top-full bg-dk border border-white/10 w-32 p-2 lang-dropdown shadow-2xl">
+                        <a href="/index.html" class="flex items-center space-x-3 p-2 hover:bg-white/5 transition group">
+                            <iconify-icon icon="twemoji:flag-united-kingdom" width="16"></iconify-icon>
+                            <span class="text-[10px] group-hover:text-no">English</span>
+                        </a>
+                        <a href="/el/index.html" class="flex items-center space-x-3 p-2 hover:bg-white/5 transition group">
+                            <iconify-icon icon="twemoji:flag-greece" width="16"></iconify-icon>
+                            <span class="text-[10px] group-hover:text-no">Ελληνικά</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#locations" class="text-no border border-no/30 px-4 py-1 hover:bg-no hover:text-white transition">Локации</a>
+            </div>
+
+            <button id="menuBtn" class="md:hidden text-no text-2xl flex items-center space-x-4">
+                <iconify-icon icon="solar:hamburger-menu-linear"></iconify-icon>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 bg-bk z-[60] transform translate-x-full transition-transform duration-500 flex flex-col p-8">
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex space-x-4">
+                <a href="bg.html" class="p-2 border border-no/40 bg-no/10 rounded-full"><iconify-icon icon="twemoji:flag-bulgaria" width="24"></iconify-icon></a>
+                <a href="el.html" class="p-2 border border-white/5 rounded-full hover:border-no transition"><iconify-icon icon="twemoji:flag-greece" width="24"></iconify-icon></a>
+                <a href="index.html" class="p-2 border border-white/5 rounded-full hover:border-no transition"><iconify-icon icon="twemoji:flag-united-kingdom" width="24"></iconify-icon></a>
+            </div>
+            <button id="closeMenuBtn" class="text-no text-4xl"><iconify-icon icon="solar:close-circle-linear"></iconify-icon></button>
+        </div>
+
+        <div class="flex flex-col space-y-8 font-heading text-4xl tracking-wide">
+            <a href="#services" class="mob-link">Услуги</a>
+            <a href="#about" class="mob-link">Агенция</a>
+            <a href="#faq" class="mob-link">ЧЗВ</a>
+            <a href="#locations" class="mob-link text-no">Локации</a>
+        </div>
+    </div>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#331a00,transparent_60%)]"></div>
+        <div class="relative z-10 text-center max-w-5xl">
+            <span class="text-no font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">ISO 17100 СЕРТИФИЦИРАНА ВОДЕЩА АГЕНЦИЯ</span>
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-heading leading-none tracking-tighter text-metallic mb-10">
+                Вашият глас,<br>прецизно.
+            </h1>
+            <p class="text-white/50 text-sm md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                Елитни лингвистични решения за медицинския, правния и дигиталния сектор. Професионални езикови преводи гръцки, български и английски език с пълна точност и културен нюанс от носители на езика.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#about" class="bg-no hover:bg-noh text-white px-12 py-5 font-bold text-xs uppercase tracking-widest transition w-full md:w-auto">АГЕНЦИЯ</a>
+                <a href="#services" class="border border-white/10 hover:bg-white/5 text-white px-12 py-5 font-bold text-xs uppercase tracking-widest transition w-full md:w-auto">УСЛУГИ</a>
+            </div>
+        </div>
+    </section>
+
+  <section id="services" class="py-24 px-6 max-w-[1440px] mx-auto fade-section">
+    <div class="text-center mb-16">
+        <h2 class="font-heading text-6xl tracking-tighter">НАШИТЕ <span class="text-no">УСЛУГИ</span></h2>
+        <p class="text-white/40 mt-4 uppercase tracking-[0.2em] text-[10px]">Специализирани езикови преводи: BG-GR-GB</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:medical-kit-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">01</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Медицински преводи</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8">Епикризи, ТЕЛК решения, фармацевтични и <a href="https://prevodi.elpak.net/meditsinski-prevodi-gratski.html" target="_blank">медицински доклади</a>, обработени с абсолютна научна прецизност.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Медицински">
+            </div>
+        </div>
+
+        <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:document-text-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">02</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Правни преводи</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8"><a href="https://prevodi.elpak.net/yuridicheski-dokumenti-prevodi.html" target="_blank">Официални преводи</a> на договори, съдебни решения и корпоративни документи, признати от международните институции.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Правни">
+            </div>
+        </div>
+
+        <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:settings-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">03</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Технически преводи</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8">Сложни <a href="https://prevodi.elpak.net/obshtinski-dokumenti-prevodi.html" target="_blank">техническите преводи</a> ключови за индустриални сектори като машиностроене, енергетика, ИТ и строителство.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Технически">
+            </div>
+        </div>
+
+        <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:users-group-rounded-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">04</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Съдебен превод</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8"><a href="https://prevodi.elpak.net" target="_blank">Заклети преводачи</a> за съдебни производства, свидетелски показания и нотариални актове с пълна правна валидност.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Съдебен">
+            </div>
+        </div>
+
+     <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:microphone-2-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">05</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Конферентен превод</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8">Специализирани преводачи за <a href="https://prevodi.elpak.net/usten-prevod-greek.html" target="_blank">консекутивен превод</a> при бизнес срещи и конференции в България и Гърция.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Екип за конферентен превод">
+            </div>
+        </div>
+
+        <div class="group bg-dk border border-white/5 p-8 transition-all hover:border-no/30">
+            <div class="flex justify-between items-start mb-12">
+                <iconify-icon icon="solar:globus-linear" class="text-no text-5xl"></iconify-icon>
+                <span class="font-heading text-white/10 text-2xl">06</span>
+            </div>
+            <h3 class="font-heading text-4xl mb-4 tracking-wide">Превод на уебсайтове</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-8">SEO-оптимизирана <a href="https://prevodi.elpak.net/prevod-na-sait-greek.html" target="_blank">локализация за електронна търговия</a>, сайтове и дигитално съдържание което говори на езика на местните.</p>
+            <div class="overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-48 object-cover bw-photo" alt="Уебсайт">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="py-24 bg-dk/50 fade-section">
+        <div class="max-w-[1440px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="font-heading text-6xl md:text-7xl mb-10 tracking-tighter">СТАНДАРТ ЗА <span class="text-no">КАЧЕСТВО</span></h2>
+                <div class="space-y-6 text-white/60 leading-relaxed font-light">
+                    <p>Като ISO 17100 сертифицирана агенция, ние се придържаме към най-строгите международни стандарти за преводачески услуги.</p>
+                    <p>Вашият мост между гръцки, български и английски език, гарантирайки, че посланието ви остава въздействащо, легално издържано и кристално ясно – навсякъде, където има нужда.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 mt-12">
+                    <div class="border-l border-no/30 pl-6">
+                        <div class="text-4xl font-heading text-white">100%</div>
+                        <div class="text-[10px] uppercase tracking-widest text-white/40">Лингвисти с майчин език</div>
+                    </div>
+                    <div class="border-l border-no/30 pl-6">
+                        <div class="text-4xl font-heading text-white">ISO</div>
+                        <div class="text-[10px] uppercase tracking-widest text-white/40">17100 Сертифицирана</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&q=80&w=800" class="w-full grayscale border border-white/5" alt="Офис">
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 px-6 bg-bk fade-section">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-heading text-6xl text-center mb-16 tracking-tighter">ВЪПРОСИ И <span class="text-no">ОТГОВОРИ</span></h2>
+            <div class="space-y-4">
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Колко време отнема стандартен превод?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Повечето стандартни документи (до 5 страници) се доставят в рамките на 24 часа. Спешни проекти могат да бъдат приоритизирани за доставка в същия ден.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Легално признати ли са вашите преводи?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Да, предоставяме официални преводи с официални печати, признати от държавни институции, съдилища и посолства.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Как гарантирате точността на превода?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Като ISO 17100 сертифицирана агенция, всеки превод преминава през 3-степенен процес: превод от експерт с майчин език, редакция от втори лингвист и финален контрол на качеството.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Предлагате ли специализирани медицински преводи?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Да, разполагаме с посветен екип от медицински лингвисти, които са специализирани в клинични изпитвания, фармацевтични доклади и пациентски досиета.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Предлагате ли заклети преводачи за Гърция или България?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Абсолютно. Ние сме сертифицирана агенция и в двете юрисдикции и нашите документи са валидни за всички официални цели.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Как се изчисляват цените?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Ценообразуването се основава на броя думи, езиковата двойка и техническата сложност на текста. Свържете се с нас за точна оферта и срок на изпълнение.</div>
+                    </div>
+                </div>
+                <div class="bg-dk border border-white/5 rounded-sm">
+                    <button class="w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                        <span class="text-[15px] font-medium group-hover:text-no transition-colors">Предлагате ли услуги за дистанционен превод?</span>
+                        <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-chevron text-no text-2xl"></iconify-icon>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <div class="faq-answer-content text-white/50 text-sm leading-relaxed">Да, поддържаме превод през Viber за бизнес срещи, правни консултации и медицински прегледи.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="py-24 px-6 max-w-[1440px] mx-auto fade-section">
+        <div class="text-center mb-16">
+            <h2 class="font-heading text-6xl tracking-tighter">НАШИТЕ <span class="text-no">ОФИСИ</span></h2>
+            <p class="text-white/40 mt-4 uppercase tracking-[0.2em] text-[10px]">Посетете ни в нашите централни локации</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-dk border border-white/5 p-10 group hover:border-no/30 transition-all">
+                <iconify-icon icon="solar:map-point-linear" class="text-no text-4xl mb-6"></iconify-icon>
+                <h3 class="font-heading text-3xl mb-4">СОФИЯ</h3>
+                <p class="text-white/50 text-sm leading-relaxed mb-8">ул. „Георги С. Раковски“ 24<br>1000 София, България<br>Email: info@dialexis.com<br>тел: +359 2 445 6687</p>
+
+            </div>
+            <div class="bg-dk border border-white/5 p-10 group hover:border-no/30 transition-all">
+                <iconify-icon icon="solar:map-point-linear" class="text-no text-4xl mb-6"></iconify-icon>
+                <h3 class="font-heading text-3xl mb-4">АТИНА</h3>
+                <p class="text-white/50 text-sm leading-relaxed mb-8">3 Voulis Street<br>10563 Athens, Greece<br>Email: info@dialexis.com<br>tel: +30 214 214 8010</p>
+
+            </div>
+            <div class="bg-dk border border-white/5 p-10 group hover:border-no/30 transition-all">
+                <iconify-icon icon="solar:map-point-linear" class="text-no text-4xl mb-6"></iconify-icon>
+                <h3 class="font-heading text-3xl mb-4">ЛОНДОН</h3>
+                <p class="text-white/50 text-sm leading-relaxed mb-8">8 Fenchurch Street<br>EC3M 3BY London, UK<br>Email: info@dialexis.com<br>tel: +44 20 7606 1814</p>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 bg-bk text-center">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="text-4xl font-heading text-metallic mb-8">DIALEXIS</div>
+            <p class="text-white/20 text-[10px] uppercase tracking-widest leading-loose">
+                &copy; 2026 Dialexis Translation Agency. ISO 17100:2015.<br><a href="https://blog7.org" target="_blank">Уеб разработки</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn=document.getElementById('menuBtn'),closeMenuBtn=document.getElementById('closeMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),mobLinks=document.querySelectorAll('.mob-link');
+        menuBtn.addEventListener('click',()=>{mobileMenu.classList.add('open');document.body.style.overflow='hidden'});
+        closeMenuBtn.addEventListener('click',()=>{mobileMenu.classList.remove('open');document.body.style.overflow=''});
+        mobLinks.forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');document.body.style.overflow=''}));
+
+        function toggleFaq(btn){
+            const answer=btn.nextElementSibling,chevron=btn.querySelector('.faq-chevron'),isOpen=answer.classList.contains('open');
+            document.querySelectorAll('.faq-answer').forEach(el=>{el.classList.remove('open');el.previousElementSibling.querySelector('.faq-chevron').classList.remove('open')});
+            if(!isOpen){answer.classList.add('open');chevron.classList.add('open')}
+        }
+
+        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.1});
+        document.querySelectorAll('.fade-section').forEach(s=>obs.observe(s));
+    </script>
+</body>
+</html>
